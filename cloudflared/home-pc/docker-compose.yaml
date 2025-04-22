@@ -2,5 +2,7 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:2025.4.0
     container_name: cloudflared-home-pc
-    command: tunnel --no-autoupdate run --token eyJhIjoiMzdmNWUyYjhhNjQ4ODkwMDc4Njc1NzViOTQwZTgyZDUiLCJ0IjoiY2QzNzI2MTAtY2RiMy00MjRmLWIxOTItYWZmZGNjMDUzMTdmIiwicyI6Ik1EVTFZalV5WXpJdFpHWXlOUzAwTW1ObExUZ3hNVGN0TkRnM1lUTTBOalUyWkRSayJ9
+    command: tunnel --no-autoupdate run
     restart: always
+    environment:
+      - TUNNEL_TOKEN=eyJhIjoiMzdmNWUyYjhhNjQ4ODkwMDc4Njc1NzViOTQwZTgyZDUiLCJ0IjoiY2QzNzI2MTAtY2RiMy00MjRmLWIxOTItYWZmZGNjMDUzMTdmIiwicyI6Ik1EVTFZalV5WXpJdFpHWXlOUzAwTW1ObExUZ3hNVGN0TkRnM1lUTTBOalUyWkRSayJ9
