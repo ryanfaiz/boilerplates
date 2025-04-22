@@ -7,7 +7,7 @@ services:
     #  - 6379:6379
     restart: always
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgresql_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=nextcloud
       - POSTGRES_USER=nextcloud
@@ -40,7 +40,6 @@ services:
     depends_on:
       - postgres
       - redis
-      - onlyoffice
 
   cron:
     image: nextcloud:31.0.4
@@ -52,21 +51,9 @@ services:
     depends_on:
       - postgres
       - redis
-      - onlyoffice
 
-  onlyoffice:
-    image: onlyoffice/documentserver:8.3.3
-    container_name: onlyoffice
-    restart: always
-    ports:
-      - 8081:80
-    environment:
-      - JWT_ENABLED=true
-      - JWT_SECRET=supersecretjwtkey
-    #  - JWT_HEADER=Authorization
 
 volumes:
-  db_data:
+  postgresql_data:
   redis_data:
   nextcloud:
-  onlyoffice:
