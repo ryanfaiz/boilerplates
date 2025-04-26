@@ -3,9 +3,8 @@ services:
     image: onlyoffice/documentserver:8.3.3
     container_name: onlyoffice-documentserver
     ports:
-      - "80:80"
+      - "8081:80"
     environment:
-      - DOCUMENT_SERVER_PUBLIC_HOSTNAME=https://onlyoffice-pc.ryanfaiz.com
       # Uncomment strings below to enable the JSON Web Token validation.
       - JWT_ENABLED=true
       - JWT_SECRET=secret
