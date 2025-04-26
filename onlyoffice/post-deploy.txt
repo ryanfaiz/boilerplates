@@ -1,0 +1,3 @@
+docker exec -it onlyoffice-documentserver sudo documentserver-update-securelink.sh
+
+sudo chmod -R 777 ./app/onlyoffice/DocumentServer

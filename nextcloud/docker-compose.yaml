@@ -52,7 +52,6 @@ services:
       - postgres
       - redis
 
-
 volumes:
   postgresql_data:
   redis_data:

@@ -1,4 +1,3 @@
-
 services:
   onlyoffice-documentserver:
     image: onlyoffice/documentserver:8.3.3
@@ -25,15 +24,15 @@ services:
     restart: always
     stop_grace_period: 60s
     volumes:
-       - /var/www/onlyoffice/Data
-       - /var/log/onlyoffice
-       - /var/lib/onlyoffice/documentserver/App_Data/cache/files
-       - /var/www/onlyoffice/documentserver-example/public/files
-       - /usr/share/fonts
+       - ./app/onlyoffice/var/www/onlyoffice/Data:/var/www/onlyoffice/Data
+       - ./app/onlyoffice/var/log/onlyoffice:/var/log/onlyoffice
+       - ./app/onlyoffice/var/lib/onlyoffice/documentserver/App_Data/cache/files:/var/lib/onlyoffice/documentserver/App_Data/cache/files
+       - ./app/onlyoffice/var/www/onlyoffice/documentserver-example/public/files:/var/www/onlyoffice/documentserver-example/public/files
+       - ./app/onlyoffice/usr/share/fonts:/usr/share/fonts
        
   onlyoffice-rabbitmq:
     container_name: onlyoffice-rabbitmq
-    image: rabbitmq:4.1.0
+    image: rabbitmq
     restart: always
     expose:
       - '5672'
