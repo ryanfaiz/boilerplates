@@ -2,9 +2,8 @@ services:
   postgres:
     image: postgres:17.4
     container_name: nextcloud-postgres
-    # Ports are not expose due to security reason
-    # ports:
-    #  - 6379:6379
+    ports:
+    - 6379:6379
     restart: always
     volumes:
       - postgresql_data:/var/lib/postgresql/data
@@ -16,9 +15,8 @@ services:
   redis:
     image: redis:7.4.2
     container_name: nextcloud-redis
-    # Ports are not expose due to security reason
-    # ports:
-    # - 6379:6379
+    ports:
+    - 6379:6379
     restart: always
     volumes:
       - redis_data:/data
@@ -31,7 +29,6 @@ services:
       - 8080:80
     volumes:
       - nextcloud:/var/www/html
-      - ./config:/var/www/html/config/config.php
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_DB=nextcloud
@@ -48,7 +45,6 @@ services:
     restart: always
     volumes:
       - nextcloud:/var/www/html
-      - ./config:/var/www/html/config/config.php
     entrypoint: /cron.sh
     depends_on:
       - postgres
