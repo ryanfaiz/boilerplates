@@ -17,5 +17,5 @@ services:
       - ./app/onlyoffice/DocumentServer/rabbitmq:/var/lib/rabbitmq
       - ./app/onlyoffice/DocumentServer/redis:/var/lib/redis
       - ./app/onlyoffice/DocumentServer/db:/var/lib/postgresql
-    restart: always
+    restart: unless-stopped
     stdin_open: true
