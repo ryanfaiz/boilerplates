@@ -11,11 +11,11 @@ services:
       - JWT_HEADER=Authorization
       - JWT_IN_BODY=true
     volumes:
-      - ./app/onlyoffice/DocumentServer/logs:/var/log/onlyoffice  
-      - ./app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/Data  
-      - ./app/onlyoffice/DocumentServer/lib:/var/lib/onlyoffice 
-      - ./app/onlyoffice/DocumentServer/rabbitmq:/var/lib/rabbitmq 
-      - ./app/onlyoffice/DocumentServer/redis:/var/lib/redis 
+      - ./app/onlyoffice/DocumentServer/logs:/var/log/onlyoffice
+      - ./app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/Data
+      - ./app/onlyoffice/DocumentServer/lib:/var/lib/onlyoffice
+      - ./app/onlyoffice/DocumentServer/rabbitmq:/var/lib/rabbitmq
+      - ./app/onlyoffice/DocumentServer/redis:/var/lib/redis
       - ./app/onlyoffice/DocumentServer/db:/var/lib/postgresql
     restart: always
     stdin_open: true

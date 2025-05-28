@@ -25,7 +25,6 @@ services:
       - 8080:80
     volumes:
       - nextcloud:/var/www/html
-      - ./config/config.php:/var/www/html/config/config.php
     environment:
       - POSTGRES_HOST=postgres
       - POSTGRES_DB=nextcloud
@@ -42,7 +41,6 @@ services:
     restart: always
     volumes:
       - nextcloud:/var/www/html
-      - ./config/config.php:/var/www/html/config/config.php
     entrypoint: /cron.sh
     depends_on:
       - postgres

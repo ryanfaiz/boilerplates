@@ -1,9 +1,0 @@
-docker exec onlyoffice-documentserver sudo documentserver-update-securelink.sh
-
-docker exec onlyoffice-documentserver sudo supervisorctl start ds:example
-
-sudo chmod -R 777 ./app/onlyoffice/DocumentServer
-
-nano /etc/nginx/conf.d/ds.conf
-nano /etc/onlyoffice/documentserver/default.json
-documentserver-update-securelink.sh
